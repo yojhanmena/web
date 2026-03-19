@@ -1,0 +1,534 @@
+:root {
+    --primary: #FF6B35;
+    --secondary: #004E89;
+    --dark: #1A1A2E;
+    --light: #F7F7F7;
+    --gray: #6C757D;
+    --success: #28a745;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--light);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo i {
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Main content */
+main {
+    padding: 2rem 0 4rem;
+}
+
+/* Player section */
+.player-section {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.player-title h2 {
+    color: var(--secondary);
+}
+
+.player-title p {
+    color: var(--gray);
+}
+
+.live-badge {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.player-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.album-art {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: rotate 20s linear infinite;
+    animation-play-state: paused;
+}
+
+.album-art.playing {
+    animation-play-state: running;
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.track-info {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.track-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.track-artist {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.control-btn {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+}
+
+.control-btn:hover {
+    background-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.play-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.volume-control i {
+    color: var(--secondary);
+}
+
+.volume-slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+/* Schedule section */
+.schedule-section {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.schedule-item {
+    padding: 1rem;
+    border-left: 4px solid var(--primary);
+    background-color: rgba(255, 107, 53, 0.05);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.schedule-time {
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 0.3rem;
+}
+
+.schedule-dj {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* DJ Connection Section */
+.dj-section {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dj-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.dj-instructions {
+    flex: 1;
+    min-width: 300px;
+}
+
+.dj-instructions h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.dj-instructions ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.dj-instructions li {
+    margin-bottom: 0.8rem;
+}
+
+.streaming-data {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    list-style-type: none;
+}
+
+.streaming-data li {
+    margin-bottom: 0.5rem;
+}
+
+.note {
+    font-style: italic;
+    color: var(--gray);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.virtual-dj-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #1A1A2E 0%, #004E89 100%);
+    border-radius: var(--radius);
+    color: white;
+    flex: 0 0 200px;
+}
+
+.virtual-dj-logo i {
+    font-size: 4rem;
+    color: var(--primary);
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+    z-index: 1000;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 2.5rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    color: white;
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .player-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .live-badge {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--dark);
+        padding: 2rem;
+        transition: left 0.3s;
+        box-shadow: var(--shadow);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .album-art {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .player-section, .schedule-section, .dj-section {
+        padding: 1.5rem;
+    }
+    
+    .control-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .play-btn {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+    
+    .virtual-dj-logo {
+        flex: 0 0 100%;
+        margin-top: 1rem;
+    }
+}
